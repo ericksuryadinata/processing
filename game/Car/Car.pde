@@ -32,6 +32,7 @@ void draw()
     move.renewal();
     move.showCar();
     move.showCoin();
+    move.showBomb();
   }
     
 }
