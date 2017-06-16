@@ -2,12 +2,14 @@ class Move
 {
   PVector location;
   PVector locationCoin;
+  PVector locationBomb;
   PVector speedup;
   PVector acceleration;
   
-  float speed,x,y,hC,wC;
+  float speed,x,y,hC,wC,hB,wB;
   PShape car;
   PShape coin;
+  PShape;
   
   Move() //constructor
   {
@@ -16,6 +18,8 @@ class Move
     speed = 5;
     wC=30;
     hC=20;
+    wB=30;
+    hB=20;
     x=random(255);
     y=random(255);
   }
@@ -65,5 +69,22 @@ class Move
       y=random(width);
     }
     
+  }
+  
+  void showBomb()
+  {
+    bomb = loadShape("bomb.svg");
+
+    locationBomb = new PVector(x,y);
+    println(locationBomb.x+" "+locationBomb.y);
+    println(location.x+" "+location.y);
+    translate(locationBomb.x, locationBomb.y);
+    shape(bomb, 0, 0, wB, hB);
+    
+    //Tinggal logikanya saja, biar kena bomb otomatis gameover, dan keluar play again. :D
+    //Masih newbie mainan processing :V
+    
+    xB=random(height);
+    yB=random(width);
   }
 }
